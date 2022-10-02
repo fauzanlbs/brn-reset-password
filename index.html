@@ -21,21 +21,34 @@
                 const newPassConfParam = $('#new_password_conf').val();
 
                 console.log(newPassParam, newPassConfParam);
-                $.post("https://www.brnjuara.com/auth/reset-password",
-                    {
-                        code: codeParam,
-                        password: newPassParam,
-                        passwordConfirmation: newPassConfParam
-                    },
-                    function (data, status) {
-                        if (data.user) {
-                            alert('Password telah diubah');
-                            window.location.replace("https://resonant-tartufo-036f3c.netlify.app");
-                        }
-                        // alert("Data: " + data + "\nStatus: " + status);
+                // $.post("https://www.brnjuara.com/auth/reset-password",
+                //     {
+                //         code: codeParam,
+                //         password: newPassParam,
+                //         passwordConfirmation: newPassConfParam
+                //     },
+                //     function (data, status) {
+                //         if (data.user) {
+                //             alert('Password telah diubah');
+                //             window.location.replace("https://resonant-tartufo-036f3c.netlify.app");
+                //         }
+                //         // alert("Data: " + data + "\nStatus: " + status);
 
-                    });
-            });
+                //     });
+                $.ajax({  
+                    type: 'POST',  
+                    url: 'https://www.brnjuara.com/auth/reset-password', 
+                    data: {
+                            code: codeParam,
+                            password: newPassParam,
+                            passwordConfirmation: newPassConfParam
+                    },
+                    success: function(response) {
+                    console.log("Succes");
+                    alert('Password telah diubah');
+                    window.location.replace("https://resonant-tartufo-036f3c.netlify.app");
+                     }
+                });
 
         });
     </script>
@@ -78,7 +91,7 @@
         </div>
 
     </div>
-    <p class="text-center text-white text-xs bg-gray-200 px-4 py-4">
+    <p class="text-center text-black text-xs bg-gray-200 px-4 py-4">
         &copy;2022 BRN
     </p>
 </body>
