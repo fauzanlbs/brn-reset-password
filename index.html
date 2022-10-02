@@ -19,14 +19,14 @@
                 console.log(codeParam);
                 const newPassParam = $('#new_password').val();
                 const newPassConfParam = $('#new_password_conf').val();
+                var datanya = {
+                        code: codeParam,
+                        password: newPassParam,
+                        passwordConfirmation: newPassConfParam
+                };
 
                 console.log(newPassParam, newPassConfParam);
-                // $.post("https://www.brnjuara.com/auth/reset-password",
-                //     {
-                //         code: codeParam,
-                //         password: newPassParam,
-                //         passwordConfirmation: newPassConfParam
-                //     },
+                // $.post("https://www.brnjuara.com/auth/reset-password", JSON.stringy(datanya),
                 //     function (data, status) {
                 //         if (data.user) {
                 //             alert('Password telah diubah');
@@ -37,17 +37,17 @@
                 //     });
                 $.ajax({  
                     type: 'POST',  
+                    contentType: 'application/json',
                     url: 'https://www.brnjuara.com/auth/reset-password', 
-                    data: {
-                            code: codeParam,
-                            password: newPassParam,
-                            passwordConfirmation: newPassConfParam
-                    },
+                    data: JSON.stringify(datanya),
+                    timeout: 600000,
                     success: function(response) {
                     console.log("Succes");
                     alert('Password telah diubah');
-                    window.location.replace("https://resonant-tartufo-036f3c.netlify.app");
-                     }
+                    window.location.replace("https://resonant-tartufo-036f3c.netlify.app");},
+                    error: function (e) {
+                     console.log("Error", e);
+                    }
                 });
 
         });
