@@ -39,7 +39,7 @@
                     type: 'POST',  
                     contentType: 'application/json',
                     url: 'https://www.brnjuara.com/auth/reset-password', 
-                    data: JSON.stringify(datanya),
+                    data: datanya,
                     timeout: 600000,
                     success: function(response) {
                     console.log("Succes", response);
