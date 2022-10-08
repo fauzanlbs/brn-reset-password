@@ -37,7 +37,8 @@
                 //     });
                 $.ajax({  
                     type: 'POST',  
-                    contentType: 'multipart/form-data',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
                     url: 'https://www.brnjuara.com/auth/reset-password', 
                     data: JSON.stringify(datanya),
                     timeout: 600000,
