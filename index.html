@@ -26,29 +26,29 @@
                 };
 
                 console.log(newPassParam, newPassConfParam);
-                // $.post("https://www.brnjuara.com/auth/reset-password", JSON.stringy(datanya),
-                //     function (data, status) {
-                //         if (data.user) {
-                //             alert('Password telah diubah');
-                //             window.location.replace("https://resonant-tartufo-036f3c.netlify.app");
-                //         }
-                //         // alert("Data: " + data + "\nStatus: " + status);
+                $.post("https://www.brnjuara.com/auth/reset-password", JSON.stringy(datanya),
+                    function (data, status) {
+                        if (data.user) {
+                            alert('Password telah diubah');
+                            window.location.replace("https://resonant-tartufo-036f3c.netlify.app");
+                        }
+                        
 
-                //     });
-                $.ajax({  
-                    type: 'POST',  
-                    contentType: 'application/json',
-                    url: 'https://www.brnjuara.com/auth/reset-password', 
-                    data: datanya,
-                    timeout: 600000,
-                    success: function(response) {
-                    console.log("Succes", response);
-                    alert('Password telah diubah');
-                    window.location.replace("https://resonant-tartufo-036f3c.netlify.app");},
-                    error: function (e) {
-                     console.log("Error", e);
-                    }
-                });
+                    });
+                // $.ajax({  
+                //     type: 'POST',  
+                //     // contentType: 'application/json',
+                //     url: 'https://www.brnjuara.com/auth/reset-password', 
+                //     data: JSON.stringify(datanya),
+                //     timeout: 600000,
+                //     success: function(response) {
+                //     console.log("Succes", response);
+                //     alert('Password telah diubah');
+                //     window.location.replace("https://resonant-tartufo-036f3c.netlify.app");},
+                //     error: function (e) {
+                //      console.log("Error", e);
+                //     }
+                // });
             })
         });
     </script>
