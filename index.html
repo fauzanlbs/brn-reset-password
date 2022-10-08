@@ -26,7 +26,7 @@
                 };
 
                 console.log(newPassParam, newPassConfParam);
-                $.post("https://www.brnjuara.com/auth/reset-password", JSON.stringy(datanya),
+                $.post("https://www.brnjuara.com/auth/reset-password", JSON.stringify(datanya),
                     function (data, status) {
                         if (data.user) {
                             alert('Password telah diubah');
