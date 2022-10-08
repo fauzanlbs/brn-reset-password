@@ -42,14 +42,14 @@
                     data: JSON.stringify(datanya),
                     timeout: 600000,
                     success: function(response) {
-                    console.log("Succes");
+                    console.log("Succes", response);
                     alert('Password telah diubah');
                     window.location.replace("https://resonant-tartufo-036f3c.netlify.app");},
                     error: function (e) {
                      console.log("Error", e);
                     }
                 });
-
+            })
         });
     </script>
 </head>
